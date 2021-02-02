@@ -54,12 +54,14 @@ return [
 
     /*matching heroku*/ //watch 1:41:56
 
-    'url' => env('APP_URL', env('HEROKU_APP_NAME') ? 'https://' . env('HEROKU_APP_NAME') . '.herokuapp.com' : 'http://localhost'),
+    'key' => strpos(env('APP_KEY'), 'base64') !== false ? env('APP_KEY') : substr(env('APP_KEY'), 0, 32),
 
-    //'url' => env('APP_URL', 'http://localhost'),
+    'cipher' => 'AES-256-CBC',
+    // 'url' => env('APP_URL', env('HEROKU_APP_NAME') ? 'https://' . env('HEROKU_APP_NAME') . '.herokuapp.com' : 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL', null),
+    // //'url' => env('APP_URL', 'http://localhost'),
 
+    // 'asset_url' => env('ASSET_URL', null),
 
     /*
     |--------------------------------------------------------------------------
